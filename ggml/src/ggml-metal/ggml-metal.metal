@@ -8265,7 +8265,7 @@ kernel void kernel_flash_attn_ext_vec(
                         // At 32K context, ~90%+ of attention weights are near zero.
                         // Skipping their V dequant saves ~50% of total dequant cost.
                         const float attn_weight = float(ss[NE*cc + ty]);
-                        if (attn_weight < 1e-6f) continue;  // skip negligible positions
+                        if (attn_weight < 1e-6f) continue;
 #endif
                         device const vd4_t * pv4 = (device const vd4_t *) (v + ((ic + NE*cc + ty)*args.nb21));
 
